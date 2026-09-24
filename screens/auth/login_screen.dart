@@ -69,10 +69,7 @@ class LoginPage extends StatelessWidget {
                         if (context.mounted) {
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(
-                                title: 'Electricity Payment',
-                              ),
-                            ),
+                              builder: (context) => HomePage(username: email),                            ),
                           );
                         }
                       } else {
