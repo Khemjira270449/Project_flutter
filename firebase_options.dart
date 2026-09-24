@@ -30,10 +30,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,23 +44,22 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD0CeHQnOXXUqKrcL9hGES_Gp2TPlpWHUc',
-    appId: '1:898904213749:web:b58c922f8f951a88ab5dbc',
-    messagingSenderId: '898904213749',
-    projectId: 'flutterfirebaseeducation-5d8a5',
-    authDomain: 'flutterfirebaseeducation-5d8a5.firebaseapp.com',
-    storageBucket: 'flutterfirebaseeducation-5d8a5.firebasestorage.app',
-    measurementId: 'G-29F7BMN4Q3',
+    apiKey: 'AIzaSyCsif_OL7_vuGqn2WT4UkUMkBbdLJbcA8k',
+    appId: '1:759638883525:web:37e7f1048d551b09fc04ac',
+    messagingSenderId: '759638883525',
+    projectId: 'projectflutterdoctorcrop',
+    authDomain: 'projectflutterdoctorcrop.firebaseapp.com',
+    storageBucket: 'projectflutterdoctorcrop.firebasestorage.app',
+    measurementId: 'G-WSVR31GB0T',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD1mk77WDVPwF66IAkZ7lnQ_yhq6Jis1Z0',
-    appId: '1:898904213749:android:8f5a84ecb8438858ab5dbc',
-    messagingSenderId: '898904213749',
-    projectId: 'flutterfirebaseeducation-5d8a5',
-    storageBucket: 'flutterfirebaseeducation-5d8a5.firebasestorage.app',
+    apiKey: 'AIzaSyAGAiENBzVQOfdB1qRfDIYdMeg0DvBOUJM',
+    appId: '1:759638883525:android:c75a26d80e33b844fc04ac',
+    messagingSenderId: '759638883525',
+    projectId: 'projectflutterdoctorcrop',
+    storageBucket: 'projectflutterdoctorcrop.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDMK45Z2OwouPUowvc7R_4D43c6tD5Wvt4',
     appId: '1:898904213749:ios:b2667447614c50a7ab5dbc',
@@ -71,5 +67,15 @@ class DefaultFirebaseOptions {
     projectId: 'flutterfirebaseeducation-5d8a5',
     storageBucket: 'flutterfirebaseeducation-5d8a5.firebasestorage.app',
     iosBundleId: 'com.example.electricityPaymentAuth',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCsif_OL7_vuGqn2WT4UkUMkBbdLJbcA8k',
+    appId: '1:759638883525:web:47044751007a9ac8fc04ac',
+    messagingSenderId: '759638883525',
+    projectId: 'projectflutterdoctorcrop',
+    authDomain: 'projectflutterdoctorcrop.firebaseapp.com',
+    storageBucket: 'projectflutterdoctorcrop.firebasestorage.app',
+    measurementId: 'G-CLJ4V8WLQE',
   );
 }
