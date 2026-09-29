@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../theme/colors.dart';
 
 /// พื้นหลังไล่สีเขียวตามดีไซน์
@@ -18,8 +18,8 @@ class GradientBackground extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: dark
-              ? const [AppColors.darkTop, AppColors.darkBottom]
-              : const [AppColors.lightTop, AppColors.lightBottom],
+              ? [AppColors.darkTop, AppColors.darkBottom]
+              : [AppColors.lightTop, AppColors.lightBottom],
         ),
       ),
       child: child,
@@ -192,6 +192,104 @@ class InfoSection extends StatelessWidget {
             ),
         ],
       ),
+    );
+  }
+}
+
+/// ส่วนหัวโค้งมนไล่สีเขียว มีไอคอนวงกลมลอยอยู่ตรงกลาง
+class LeafHeader extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+
+  const LeafHeader({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    this.icon = Icons.eco_rounded,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    const base = AppColors.primary;
+    final hsl = HSLColor.fromColor(base);
+    final darker =
+        hsl.withLightness((hsl.lightness - 0.18).clamp(0.0, 1.0)).toColor();
+
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        bottomLeft: Radius.circular(48),
+        bottomRight: Radius.circular(48),
+      ),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [darker, base],
+          ),
+        ),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Positioned(
+              top: -30,
+              right: -30,
+              child: _softCircle(120, const Color.fromRGBO(255, 255, 255, 0.06)),
+            ),
+            Positioned(
+              bottom: 60,
+              left: -40,
+              child: _softCircle(90, const Color.fromRGBO(255, 255, 255, 0.05)),
+            ),
+            SafeArea(
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 32, 24, 64),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 72,
+                      height: 72,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(icon, color: darker, size: 36),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      title,
+                      style: GoogleFonts.kanit(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      subtitle,
+                      style: GoogleFonts.sarabun(
+                        fontSize: 14,
+                        color: const Color.fromRGBO(255, 255, 255, 0.85),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget _softCircle(double size, Color color) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
 }
